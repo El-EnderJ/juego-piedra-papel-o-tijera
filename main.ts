@@ -3,9 +3,9 @@ radio.onReceivedNumber(function (receivedNumber) {
         if (Lo_que_has_elegido == 1) {
             basic.showString("Empate")
         } else if (Lo_que_has_elegido == 2) {
-            basic.showString("Victoria")
-        } else {
             basic.showString("Derrota")
+        } else {
+            basic.showString("Victoria")
         }
     } else if (receivedNumber == 2) {
         if (Lo_que_has_elegido == 1) {
