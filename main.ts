@@ -32,9 +32,16 @@ input.onButtonPressed(Button.A, function () {
         . # # . #
         # # # # #
         . # # # #
-        . # # # .
-        # # # . .
+        . # # # #
+        # # # . #
         `)
+})
+input.onGesture(Gesture.Shake, function () {
+    if (Musica_Activada == 2) {
+        Musica_Activada = 1
+    } else {
+        Musica_Activada = 2
+    }
 })
 input.onButtonPressed(Button.AB, function () {
     radio.sendNumber(3)
@@ -59,11 +66,17 @@ input.onButtonPressed(Button.B, function () {
         `)
 })
 let Lo_que_has_elegido = 0
+let Musica_Activada = 0
 radio.setGroup(56)
-images.createBigImage(`
-    # # # . # # . # # #
-    # . . . # # . # . .
-    # # # . # # . # # #
-    . . # . # # . . . .
-    # # # . # # . . . #
-    `).scrollImage(1, 200)
+Musica_Activada = 2
+basic.forever(function () {
+    if (Musica_Activada == 2) {
+        music.setVolume(0)
+    } else {
+        music.setVolume(255)
+    }
+})
+basic.forever(function () {
+    music.playMelody("C5 B A G F E D C ", 120)
+    music.playMelody("C D E F G A B C5 ", 120)
+})
